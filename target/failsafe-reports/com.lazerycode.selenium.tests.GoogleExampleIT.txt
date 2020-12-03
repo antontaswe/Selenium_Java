@@ -1,8 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.lazerycode.selenium.tests.GoogleExampleIT
--------------------------------------------------------------------------------
-Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 9.627 s <<< FAILURE! - in com.lazerycode.selenium.tests.GoogleExampleIT
-googleCheeseExample(com.lazerycode.selenium.tests.GoogleExampleIT)  Time elapsed: 5.633 s  <<< FAILURE!
-java.lang.AssertionError
-	at com.lazerycode.selenium.tests.GoogleExampleIT.googleCheeseExample(GoogleExampleIT.java:44)
-

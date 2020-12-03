@@ -1,17 +1,12 @@
-Selenium-Maven-Template
+Selenium Java
 =======================
-
-[![Join the chat at https://gitter.im/Ardesco/Selenium-Maven-Template](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Ardesco/Selenium-Maven-Template?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
-A maven template for Selenium 3 that has the latest dependencies so that you can just check out and start writing tests in four easy steps.  If you like what you see have a look at my Selenium book [Mastering Selenium Webdriver](https://www.amazon.co.uk/Mastering-Selenium-WebDriver-Mark-Collin/dp/1784394351).
-
 
 1. Open a terminal window/command prompt
 2. Clone this project.
 3. `cd Selenium-Maven-Template` (Or whatever folder you cloned it into)
 4. `mvn clean verify`
 
-All dependencies should now be downloaded and the example google cheese test will have run successfully in headless mode (Assuming you have Firefox installed in the default location)
+All dependencies should now be downloaded and the tests will have run successfully in headless mode (Assuming you have Firefox installed in the default location)
 
 ### What should I know?
 
@@ -20,7 +15,7 @@ All dependencies should now be downloaded and the example google cheese test wil
 
         mvn clean verify -P-selenium-tests
         
-- The maven-failsafe-plugin will pick up any files that end in IT by default.  You can customise this is you would prefer to use a custom identifier for your Selenium tests.
+- The maven-failsafe-plugin will pick up any files that end in IT by default. You can customise this is you would prefer to use a custom identifier for your Selenium tests.
 
 ### Known problems...
 
@@ -46,7 +41,7 @@ You don't need to worry about downloading the IEDriverServer, EdgeDriver, Chrome
 You can specify a grid to connect to where you can choose your browser, browser version and platform:
 
 - -Dremote=true 
-- -DseleniumGridURL=http://{username}:{accessKey}@ondemand.saucelabs.com:80/wd/hub 
+- -DseleniumGridURL=http://hostname:port/wd/hub (e.g http://localhost:4444/wd/hub) 
 - -Dplatform=xp 
 - -Dbrowser=firefox 
 - -DbrowserVersion=44
