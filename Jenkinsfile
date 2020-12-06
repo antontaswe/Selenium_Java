@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'selenium/hub:latest'
+            image 'maven:3-alpine'
             args '-v /root/.m2:/root/.m2'
         }
     }
@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'mvn clean verify'
+                sh 'mvn clean verify -Dheadless=false -Dremote=true -DseleniumGridURL=http://localhost:4444/wd/hub -Dbrowser=firefox'
             }
             post {
                 always {
