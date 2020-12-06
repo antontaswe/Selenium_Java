@@ -11,20 +11,10 @@ pipeline {
                 sh 'mvn -B -DskipTests clean package' 
             }
         }
-
-
 		stage('Test') { 
             steps {
                 sh 'mvn clean verify -Dheadless=false -Dremote=true -DseleniumGridURL=http://172.19.0.4:4444/wd/hub -Dbrowser=firefox' 
             }
-            post {
-                always {
-                    junit 'target/surefire-reports/*.xml' 
-                }
-            }
         }
-
-
-
     }
 }
