@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'maven:3-alpine'
-            args '-v /root/.m2:/root/.m2 --network jenkins'
+            args '-v /root/.m2:/root/.m2'
         }
     }
     options {
@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'mvn clean verify -Dheadless=false -Dremote=true -DseleniumGridURL=http://localhost:4444/wd/hub -Dbrowser=firefox'
+                sh 'mvn clean verify -Dheadless=false -Dremote=true -DseleniumGridURL=http://hub:4444/wd/hub -Dbrowser=firefox'
             }
             post {
                 always {
