@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'mvn clean verify -Dheadless=false -Dremote=true -Dbrowser=chrome'
+                sh 'mvn clean verify'
             }
             post {
                 always {
