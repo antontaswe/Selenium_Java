@@ -15,11 +15,6 @@ pipeline {
             steps {
                 sh 'mvn clean verify -Dheadless=false -Dremote=true -DseleniumGridURL=http://172.18.0.4:4444/wd/hub -Dbrowser=firefox'
             }
-            post {
-                always {
-                    junit 'target/surefire-reports/*.xml'
-                }
-            }
         }
     }
 }
