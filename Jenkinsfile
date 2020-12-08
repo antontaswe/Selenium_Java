@@ -1,16 +1,14 @@
 pipeline {
     agent {
         docker {
-            image 'maven:3-alpine'
-            args '-v /root/.m2:/root/.m2'
+            image 'maven:3-alpine' 
+            args '-v /root/.m2:/root/.m2' 
         }
     }
-    options {
-        skipStagesAfterUnstable()
-    }
     stages {
-        stage('Build') {
+        stage('Build') { 
             steps {
+<<<<<<< HEAD
                 sh 'mvn -B -DskipTests clean package'
             }
         }
@@ -22,11 +20,14 @@ pipeline {
                 always {
                     junit 'target/surefire-reports/*.xml'
                 }
+=======
+                sh 'mvn -B -DskipTests clean package' 
+>>>>>>> 8f0dfd94048e2ca702f6da6faadf2b8ccbacd895
             }
         }
-        stage('Deliver') { 
+		stage('Test') { 
             steps {
-                sh './jenkins/scripts/deliver.sh' 
+                sh 'mvn clean verify -Dheadless=false -Dremote=true -DseleniumGridURL=http://172.19.0.4:4444/wd/hub -Dbrowser=firefox' 
             }
         }
     }
