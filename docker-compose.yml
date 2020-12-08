@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+    seleniumhub:
+       image: selenium/hub:latest
+       ports:
+         - 4444:4444
+       networks:
+         jenkins:
+            aliases:
+               - hub
+    firefoxnode:
+       image: selenium/node-firefox-debug:latest
+       environment:
+         - HUB_PORT_4444_TCP_ADDR=hub
+         - HUB_PORT_4444_TCP_PORT=4444
+       ports:
+         - 4445:5900
+       networks:
+         - jenkins
+       links:
+         - seleniumhub:hub
+
+    chromenode:
+       image: selenium/node-chrome-debug:latest
+       environment:
+         - HUB_PORT_4444_TCP_ADDR=hub
+         - HUB_PORT_4444_TCP_PORT=4444
+       ports:
+         - 4446:5900
+       networks:
+         - jenkins
+       links:
+         - seleniumhub:hub
+
+networks:
+    jenkins:
+        name: jenkins
