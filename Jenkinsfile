@@ -8,7 +8,6 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-<<<<<<< HEAD
                 sh 'mvn -B -DskipTests clean package'
             }
         }
@@ -20,9 +19,6 @@ pipeline {
                 always {
                     junit 'target/surefire-reports/*.xml'
                 }
-=======
-                sh 'mvn -B -DskipTests clean package' 
->>>>>>> 8f0dfd94048e2ca702f6da6faadf2b8ccbacd895
             }
         }
 		stage('Test') { 
