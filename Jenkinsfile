@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'mvn clean verify -Dheadless=false -Dremote=true -DseleniumGridURL=seleniumhub:4444/wd/hub -Dbrowser=firefox'
+                sh 'mvn clean verify -Dheadless=false -Dremote=true -DseleniumGridURL=http://seleniumhub:4444/wd/hub -Dbrowser=firefox'
             }
         }
     }
